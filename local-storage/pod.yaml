@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: test
+spec:
+    containers:
+    - image: redis:latest
+      name: container-2
+      volumeMounts:
+      - mountPath: /mango
+        name: test-volume
+    volumes:
+    - name: test-volume
+      hostPath:
+        path: /data
+        type: DirectoryOrCreate
