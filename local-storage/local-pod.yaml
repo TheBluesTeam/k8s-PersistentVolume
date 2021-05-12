@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test-local-vol
+  labels:
+    name: test-local-vol
+spec:
+  containers:
+  - name: redis
+    image: redis
+    volumeMounts:
+      - name: terrypath
+        mountPath: /yoodong
+  volumes:
+    - name: terrypath
+      persistentVolumeClaim:
+        claimName: test-pvc
